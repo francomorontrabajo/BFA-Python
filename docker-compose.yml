@@ -1,0 +1,27 @@
+services:
+  bfa:
+    build:
+      context: ./BFA
+      dockerfile: Dockerfile
+      args:
+        NETWORK_ID: ${NETWORK_ID}
+        HOME_DIRECTORY: ${HOME_DIRECTORY}
+        TESTNET_DIRECTORY: ${TESTNET_DIRECTORY}
+        NODE_DIRECTORY: ${NODE_DIRECTORY}
+    restart: unless-stopped
+    ports:
+      - "30303:30303"
+      - "8545:8545"
+    volumes:
+      - ./BFA/NODE:${NODE_DIRECTORY}
+  api:
+    depends_on:
+     - bfa
+    build:
+      context: ./API
+      dockerfile: Dockerfile
+      args:
+        API_DIRECTORY: ${API_DIRECTORY}
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
