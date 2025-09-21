@@ -13,7 +13,7 @@ services:
       - "30303:30303"
       - "8545:8545"
     volumes:
-      - ./BFA/NODE:${NODE_DIRECTORY}
+      - ./BFA/NODE/geth:${NODE_DIRECTORY}/geth
   api:
     depends_on:
      - bfa

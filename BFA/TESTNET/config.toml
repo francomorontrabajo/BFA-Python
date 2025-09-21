@@ -1,6 +1,6 @@
 [Eth]
 NetworkId = 55555000000
-SyncMode = "full"
+SyncMode = "fast"
 NoPruning = false
 DatabaseCache = 2048
 

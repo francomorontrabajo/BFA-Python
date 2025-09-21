@@ -18,4 +18,4 @@ exec geth \
     --http.corsdomain "*" \
     --http.vhosts "*" \
     --config "$TESTNET_DIRECTORY/config.toml" \
-    --ipcdisable
+    --ipcpath "$NODE_DIRECTORY/geth.ipc"
